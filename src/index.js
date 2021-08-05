@@ -48,12 +48,6 @@ client.on('ready', () => {
     const job = schedule.scheduleJob('* * * * *', async function(){
         console.log('Looking for the latest notifaction...');
 
-        const guild_id = config.testServerID;
-        const guild = client.guilds.cache.find(guild => guild.id === guild_id);
-        let channel;
-        if(guild)
-            channel = getDefaultChannel(guild);
-
         const notification = await crawler.parseNotification(`${config.notificationsUrl}`, true);
         if (notification === false){
             embeds.sendParseError(message);
@@ -63,6 +57,14 @@ client.on('ready', () => {
             console.log('No new notifications yet.');
         }else{
             console.log('Found a new notification!');
+
+            const guildID = config.mainServerID;
+            const channelID = config.mainChannelID;
+            const guild = client.guilds.cache.find(guild => guild.id === guildID);
+            const channel = guild.channels.cache.find(channel => channel.id === channelID);
+            // if(guild)
+            //     channel = getDefaultChannel(guild);
+
             lastNotification = notification;
             embeds.sendNotification(channel, notification);
         }
