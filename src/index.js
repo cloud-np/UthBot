@@ -61,12 +61,15 @@ client.on('ready', () => {
             const guildID = config.mainServerID;
             const channelID = config.mainChannelID;
             const guild = client.guilds.cache.find(guild => guild.id === guildID);
-            const channel = guild.channels.cache.find(channel => channel.id === channelID);
+            let channel;
+            if (guild){
+                channel = guild.channels.cache.find(channel => channel.id === channelID);
+                lastNotification = notification;
+                embeds.sendNotification(channel, notification);
+            }
             // if(guild)
             //     channel = getDefaultChannel(guild);
 
-            lastNotification = notification;
-            embeds.sendNotification(channel, notification);
         }
     });
 
