@@ -45,7 +45,7 @@ client.on('ready', () => {
     });
 
     let lastNotification = {name: '', published: '', url: ''};    
-    const job = schedule.scheduleJob('* * * * *', async function(){
+    const job = schedule.scheduleJob('*/5 * * * *', async function(){
         console.log('Looking for the latest notifaction...');
 
         const notification = await crawler.parseNotification(`${config.notificationsUrl}`, true);
