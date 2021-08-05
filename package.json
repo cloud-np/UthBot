@@ -9,6 +9,6 @@
     "node-schedule": "^2.0.0"
   },
   "scripts": {
-    "start": "node discord_bot/index.js"
+    "start": "node src/index.js"
   }
 }
