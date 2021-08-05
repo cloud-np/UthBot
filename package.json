@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "n": "^7.3.1",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "node-schedule": "^2.0.0"
+  },
+  "scripts": {
+    "start": "node discord_bot/index.js"
+  }
+}
