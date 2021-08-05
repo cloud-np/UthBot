@@ -49,6 +49,7 @@ client.on('ready', () => {
         console.log('Looking for the latest notifaction...');
 
         const notification = await crawler.parseNotification(`${config.notificationsUrl}`, true);
+
         if (notification === false){
             embeds.sendParseError(message);
             console.log('Something went wrong during parsing..');
@@ -66,9 +67,9 @@ client.on('ready', () => {
                 channel = guild.channels.cache.find(channel => channel.id === channelID);
                 lastNotification = notification;
                 embeds.sendNotification(channel, notification);
+            }else{
+                console.log('Could not find the main guild. Bot is not added yet to the right server.');
             }
-            // if(guild)
-            //     channel = getDefaultChannel(guild);
 
         }
     });
