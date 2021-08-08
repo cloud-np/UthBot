@@ -44,9 +44,9 @@ client.on('ready', () => {
         }
     });
 
-    command(client, 't', async message => {
-        const notification = readNotification();
-    });
+    // command(client, 't', async message => {
+    //     const notification = readNotification();
+    // });
     // command(client, 't', async message => {
     //     // Remove spaces and keep the message from the user.
     //     // const url = message.content.split(' ').join('').split(config.prefix + 'check')[1];
