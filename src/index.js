@@ -12,13 +12,13 @@ const { writeNotification, readNotification } = require('./file');
 client.on('ready', () => {
     console.log('The client is ready!');
 
-    const job = schedule.scheduleJob('* * * * *', async () => {
+    const job = schedule.scheduleJob('*/5 * * * *', async () => {
         console.log('Looking for the latest notifaction...');
 
         const notification = await crawler.parseNotification(`${config.notificationsUrl}`, true);
         const lastNotification = await readNotification();
-        console.log('Old noti: ', {lastNotification});
-        console.log('New noti: ', {notification});
+        // console.log('Old noti: ', {lastNotification});
+        // console.log('New noti: ', {notification});
 
         if (notification === false || lastNotification === false){
             // embeds.sendParseError(message);
